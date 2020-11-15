@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int arr[1000000],n,k;
+int lower_bound(int l,int r)
+{
+	if(arr[r]<k)
+		return n+1;
+	while(l<r)
+	{
+		int mid=(l+r)/2;
+		if(arr[mid]<k)
+			l=mid+1;
+		else
+			r=mid;
+	}
+	return l+1;
+}
+int main()
+{
+	cin>>n;
+	for(int i=0;i<n;i++)
+	{
+		cin>>arr[i];
+	}
+	cin>>k;
+	cout<<lower_bound(0,n-1);
+}
